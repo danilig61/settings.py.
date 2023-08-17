@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Новые статьи в категории "{{ articles.0.category.name }}" за последнюю неделю</title>
+  </head>
+  <body>
+    <h2>Новые статьи в категории "{{ articles.0.category.name }}" за последнюю неделю</h2>
+    {% for article in articles %}
+      <h3>{{ article.title }}</h3>
+      <p>{{ article.text|safe|truncatechars:50 }}</p>
+    {% endfor %}
+  </body>
+</html>

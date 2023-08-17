@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ article.title }}</title>
+  </head>
+  <body>
+    <p>В категории "{{ article.category.name }}" появилась новая статья:</p>
+    <h2>{{ article.title }}</h2>
+    <p>{{ article.text|safe|truncatechars:50 }}</p>
+  </body>
+</html>

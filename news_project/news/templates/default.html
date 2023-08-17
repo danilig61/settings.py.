@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}News App{% endblock %}</title>
+  </head>
+  <body>
+    <header>
+      <h1><a href="{% url 'news_list' %}">News App</a></h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="{% url 'news_list' %}">Home</a></li>
+        <li><a href="{% url 'news_create' %}">Add news</a></li>
+        <li>
+          <form method="get" action="{% url 'news_search' %}">
+            <input type="text" name="q" placeholder="Search">
+            <input type="submit" value="Go">
+          </form>
+        </li>
+      </ul>
+    </nav>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+  </body>
+</html>

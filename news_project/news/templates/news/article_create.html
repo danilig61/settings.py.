@@ -1,0 +1,22 @@
+{% extends 'default.html' %}
+
+{% block content %}
+<h2>Create Article</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+{% endblock %}
+{% if user.is_authenticated %}
+  {% if user in category.subscribers.all %}
+    <p>Вы уже подписаны на эту категорию.</p>
+  {% else %}
+    <form method="post" action="{% url 'subscribe' category.id %}">
+      {% csrf_token %}
+      <button type="submit">Подписаться</button>
+    </form>
+  {% endif %}
+{% else %}
+  <p>Чтобы подписаться на эту категорию, вам нужно <a href="{% url 'login' %}">войти</a> или <a href="{% url 'signup' %}">зарегистрироваться</a>.</p>
+{% endif %}

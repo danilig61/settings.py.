@@ -1,0 +1,24 @@
+{% extends 'default.html' %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+  <h2>Search</h2>
+  <form method="get">
+    <input type="text" name="q" placeholder="Search" value="{{ request.GET.q }}">
+    <input type="submit" value="Go">
+  </form>
+
+  {% if query %}
+    <h3>Results for "{{ query }}"</h3>
+    {% if news %}
+      <ul>
+        {% for n in news %}
+          <li><a href="{% url 'news_detail' pk=n.pk %}">{{ n.title }}</a></li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No results found.</p>
+    {% endif %}
+  {% endif %}
+{% endblock %}

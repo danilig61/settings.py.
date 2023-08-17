@@ -1,0 +1,9 @@
+{% extends 'default.html' %}
+
+{% block content %}
+  <h2>Подписаться на категорию "{{ category.name }}"</h2>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Подписаться</button>
+  </form>
+{% endblock %}

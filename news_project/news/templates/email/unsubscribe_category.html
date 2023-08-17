@@ -1,0 +1,9 @@
+{% extends 'default.html' %}
+
+{% block content %}
+  <h2>Отписаться от категории "{{ category.name }}"</h2>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Отписаться</button>
+  </form>
+{% endblock %}
